@@ -17,7 +17,7 @@ JOIN dim_site dsi USING (site_id)
 JOIN fact_asset fa USING (asset_id)
 JOIN dim_asset_scan dsa ON (dsa.asset_id = da.asset_id)
 JOIN dim_scan ds2 ON (dsa.scan_id = ds2.scan_id)
-WHERE da.sites = '_FID - External Assets - External Scan Engine' AND ds2.scan_id = xx
+WHERE ds2.scan_id = xx
 ORDER BY da.ip_address
 
 
