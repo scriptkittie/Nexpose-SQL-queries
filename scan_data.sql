@@ -19,3 +19,12 @@ JOIN dim_asset_scan dsa ON (dsa.asset_id = da.asset_id)
 JOIN dim_scan ds2 ON (dsa.scan_id = ds2.scan_id)
 WHERE da.sites = '_FID - External Assets - External Scan Engine' AND ds2.scan_id = xx
 ORDER BY da.ip_address
+
+
+
+/* You can see a list of possible scan identifiers that will work for the above query by running this query below */
+
+SELECT ds.scan_id FROM dim_scan ds
+JOIN dim_asset_scan dsa ON (dsa.scan_id = ds.scan_id)
+JOIN dim_asset da ON (da.asset_id = dsa.asset_id)
+WHERE da.sites = '_FID - External Assets - External Scan Engine'
