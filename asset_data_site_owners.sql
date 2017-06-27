@@ -2,6 +2,10 @@
 Display asset data including site owners
 */
 
+/*
+Display asset data including site owners
+*/
+
 WITH asset_owners AS
 (
                 SELECT DISTINCT asset_id,
@@ -57,7 +61,7 @@ SELECT    da.ip_address               AS "Address",
           ao.owners                   AS "Tag [Owner]",
           CASE
                     WHEN aos.certainty = '1' THEN "PASS"
-                    ELSE "FAIL" as "Authentication" END
+                    ELSE "FAIL" END AS "Authentication"
                     FROM      fact_asset fa
                     JOIN      dim_asset da
                     using    (asset_id)
@@ -70,4 +74,4 @@ SELECT    da.ip_address               AS "Address",
                     JOIN      asset_sites asi
                     using    (asset_id)
                     JOIN      asset_os aos
-                    using    (asset_id) 
+using (asset_id) 
