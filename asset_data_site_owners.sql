@@ -60,8 +60,8 @@ SELECT    da.ip_address               AS "Address",
           al.locations                AS "Tag [Location]",
           ao.owners                   AS "Tag [Owner]",
           CASE
-                    WHEN aos.certainty = '1' THEN "PASS"
-                    ELSE "FAIL" END AS "Authentication"
+                    WHEN aos.certainty = '1' THEN 'PASS'
+                    ELSE 'FAIL' END AS "Authentication"
                     FROM      fact_asset fa
                     JOIN      dim_asset da
                     using    (asset_id)
